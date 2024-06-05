@@ -24,7 +24,7 @@ gitAddCommitPush(){
           exit 1
     fi
 
-    if [[ "$filesCommit" -ge 0 ]]; then
+#    if [[ "$filesCommit" -ge 0 ]]; then
         git push
         if [ $? -eq 0 ]; then
             echo
@@ -35,8 +35,8 @@ gitAddCommitPush(){
                     echo "gagal push"
                     exit 1
         fi
-        else
-          echo "Tidak ada perubahan yang perlu di push"
-    fi
+#        else
+#          echo "Tidak ada perubahan yang perlu di push"
+#    fi
 }
 gitAddCommitPush

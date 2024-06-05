@@ -17,4 +17,6 @@ public class SpecDto {
     private String hardDrive;
     private String opticalDrive;
     private String konektifitas;
+
+
 }
