@@ -25,7 +25,7 @@ gitAddCommitPush(){
     fi
 
     if [[ "$filesCommit" -ge 0 ]]; then
-        git push origin master
+        git push
         if [ $? -eq 0 ]; then
             echo
                   echo "#############################################"
