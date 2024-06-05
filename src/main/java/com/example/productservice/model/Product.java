@@ -1,5 +1,6 @@
 package com.example.productservice.model;
 
+import com.example.productservice.dto.SpecDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +20,8 @@ public class Product {
     @Id
     private String id;
     private String name;
+
     private String description;
     private BigDecimal price;
+    private SpecDto spec;
 }

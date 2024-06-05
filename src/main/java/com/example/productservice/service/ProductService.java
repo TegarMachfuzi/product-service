@@ -1,5 +1,6 @@
 package com.example.productservice.service;
 
+import com.example.productservice.dto.SpecDto;
 import com.example.productservice.dto.ProductRequest;
 import com.example.productservice.dto.ProductResponse;
 import com.example.productservice.model.Product;
@@ -15,17 +16,27 @@ import java.util.List;
 @Slf4j
 public class ProductService {
 
+    //hjh
     private final ProductRepository productRepository;
 
-    public void createProduct(ProductRequest productRequest) {
+    public Product createProduct(ProductRequest productRequest) {
+        SpecDto categoryDto = new SpecDto();
+        categoryDto.setRam(productRequest.getSpec().getRam());
+        categoryDto.setProcessor(productRequest.getSpec().getProcessor());
+        categoryDto.setDisplay(productRequest.getSpec().getDisplay());
+        categoryDto.setKonektifitas(productRequest.getSpec().getKonektifitas());
+        categoryDto.setOpticalDrive(productRequest.getSpec().getOpticalDrive());
+        categoryDto.setHardDrive(productRequest.getSpec().getHardDrive());
+        categoryDto.setSistemOperasi(productRequest.getSpec().getSistemOperasi());
         Product product = Product.builder()
                 .name(productRequest.getName())
                 .description(productRequest.getDescription())
-                .price(productRequest.getPrice())
+                .price(productRequest.getPrice()).spec(categoryDto)
                 .build();
 
         productRepository.save(product);
         log.info("Product {} is saved", product.getId());
+        return product;
     }
 
     public List<ProductResponse> getAllProduct() {
