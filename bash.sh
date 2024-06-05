@@ -25,6 +25,7 @@ gitAddCommitPush(){
     fi
 
 #    if [[ "$filesCommit" -ge 0 ]]; then
+      echo "check push"
         git push
         if [ $? -eq 0 ]; then
             echo
