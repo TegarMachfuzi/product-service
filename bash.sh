@@ -27,6 +27,7 @@ gitAddCommitPush(){
 #    if [[ "$filesCommit" -ge 0 ]]; then
       echo "check push"
         git push
+        echo "test push"
         if [ $? -eq 0 ]; then
             echo
                   echo "#############################################"
