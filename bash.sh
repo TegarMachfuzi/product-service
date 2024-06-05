@@ -16,13 +16,25 @@
   filesCommit=$(git diff --cached --numstat | wc -l)
 
   git commit -m "$COMMIT_MESSAGE"
-  echo "Berhasil Commit : $COMMIT_MESSAGE"
-  echo ""
-  ((filesCommit))
+  if [ $? -eq 0 ]; then
+    echo "Berhasil commit : $COMMIT_MESSAGE"
+      echo ""
+      else
+        echo "Commit gagal."
+        exit 1
+  fi
+
   if [[ "$filesCommit" -ge 0 ]]; then
       git push origin master
-      echo
-      echo "#############################################"
-      echo "Pushed successfully; $filesCommit files"
-      echo "#############################################"
+      if [ $? -eq 0 ]; then
+          echo
+                echo "#############################################"
+                echo "Pushed successfully; $filesCommit files"
+                echo "#############################################"
+                else
+                  echo "gagal push"
+                  exit 1
+      fi
+      else
+        echo "Tidak ada perubahan yang perlu di push"
   fi
